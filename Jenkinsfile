@@ -25,7 +25,7 @@ agent any
             nexusVersion: 'nexus3',
             protocol: 'http', 
             repository: 'javahome-release',
-            version: '0.0.1'
+            version: '0.0.2'
         }
       }
       
