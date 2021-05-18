@@ -6,6 +6,9 @@ agent any
   }
   stages{
     stage("SCM BUILD"){
+      when {
+        branch "develop"
+      }
       steps{
         git branch: 'develop', url: 'https://github.com/gollaanilkumar/mutlibranch'
       }
@@ -17,6 +20,9 @@ agent any
         }
       }
       stage("Nexus uplaod"){
+        when {
+        branch "develop"
+      }
         steps{
           nexusArtifactUploader artifacts: [[artifactId: 'myweb', classifier: '', file: 'target/multi.war', type: 'war']],
           credentialsId: 'nexus3',
@@ -28,6 +34,50 @@ agent any
             version: '0.0.2'
         }
       }
+    stage("Deploy to uat")
+    {
+      when {
+        branch "uat"
+      }
+      steps{
+        echo "uat deploy"
+      }
+    }
+    
+        stage("Deploy to prod")
+    {
+      when {
+        branch "master"
+      }
+      steps{
+        echo "prod deploy"
+      }
+    }
+    
+  }
+}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+      
       
 }
 }
