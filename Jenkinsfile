@@ -2,7 +2,7 @@
 pipeline{
 agent any
   tools{
-    tool 'maven3'
+    tool name: 'maven3', type: 'maven'
   }
   stages{
     stage("SCM BUILD"){
