@@ -18,7 +18,7 @@ agent any
       }
       stage("Nexus uplaod"){
         steps{
-          nexusArtifactUploader artifacts: [[artifactId: 'myweb', classifier: '', file: 'target/mutli.war', type: 'war']],
+          nexusArtifactUploader artifacts: [[artifactId: 'myweb', classifier: '', file: 'target/multi.war', type: 'war']],
           credentialsId: 'nexus3',
            groupId: 'in.javahome', 
             nexusUrl: '172.31.37.225:8081', 
