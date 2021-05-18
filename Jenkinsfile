@@ -13,7 +13,7 @@ agent any
         git branch: 'develop', url: 'https://github.com/gollaanilkumar/mutlibranch'
       }
     }
-      stage("BuilD"){
+      stage(" maven BuilD"){
         steps{
           sh 'mvn clean package'
           sh 'mv target/myweb*.war target/multi.war'
@@ -57,29 +57,5 @@ agent any
   }
 }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-      
-      
-      
-}
-}
 
 
