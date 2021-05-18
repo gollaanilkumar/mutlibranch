@@ -1,6 +1,9 @@
 
 pipeline{
 agent any
+  tools{
+    tool 'maven3'
+  }
   stages{
     stage("SCM BUILD"){
       steps{
