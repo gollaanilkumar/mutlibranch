@@ -5,6 +5,7 @@ agent any
       steps{
         git branch: 'develop', url: 'https://github.com/gollaanilkumar/mutlibranch'
       }
+    }
       stage("BuilD"){
         steps{
           sh 'mvn clean package'
@@ -21,5 +22,7 @@ agent any
             protocol: 'http', 
             repository: 'javahome-release',
             version: '0.0.1'
+        }
+      }
       
 }
