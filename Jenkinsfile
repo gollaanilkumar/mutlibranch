@@ -41,7 +41,7 @@ agent any
       }
       steps{
         sshagent(['tomcat']) {
-          sh 'scp -o StrictHostKeychecking=no mywebdevwar ec2-user@172.31.44.101 /opt/tomcat8/webapps'
+          sh 'scp -o StrictHostKeychecking=no mywebdevwar ec2-user@172.31.44.101:/opt/tomcat8/webapps'
           sh 'ssh ec2-user@172.31.44.101 /opt/tomcat8/bin/shutdown.sh'
           sh 'ssh ec2-user@172.31.44.101 /opt/tomcat8/bin/startup.sh'
           
