@@ -40,8 +40,8 @@ agent any
         branch "develop"
       }
       steps{
-         sh 'ssh -i ec2-user@172.31.44.101 cd /opt/tomcat8/webapps &&  
-             curl -u admin:1993Modi -L -X GET "http://3.108.53.35:8081/service/rest/v1/search/assets/download?sort=version&repository=javahome-release&maven.groupId=in.javahome&maven.artifactId=myweb&maven.extension=war" -H "accept: application/json" '
+         sh 'ssh -i ec2-user@172.31.44.101 cd /opt/tomcat8/webapps'
+         sh 'curl -u admin:1993Modi -L -X GET "http://3.108.53.35:8081/service/rest/v1/search/assets/download?sort=version&repository=javahome-release&maven.groupId=in.javahome&maven.artifactId=myweb&maven.extension=war" -H "accept: application/json" --output mywebdev.war'
         echo "deployed to uat"
       }
     }
