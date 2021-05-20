@@ -40,8 +40,12 @@ agent any
         branch "develop"
       }
       steps{
-sshPublisher(publishers: [sshPublisherDesc(configName: 'tomcat', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '''/opt/tomcat8/bin/shutdown.sh
-/opt/tomcat8/bin/startup.sh''', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'mywebdev.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+        sshagent(['tomcat']) {
+          sh 'scp -o StrictHostKeychecking=no mywebdevwar ec2-user@172.31.44.101 /opt/tomcat8/webapps'
+          sh 'ssh ec2-user@172.31.44.101 /opt/tomcat8/bin/shutdown.sh'
+          sh 'ssh ec2-user@172.31.44.101 /opt/tomcat8/bin/startup.sh'
+          
+}
       }
     }
     
