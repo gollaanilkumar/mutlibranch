@@ -41,7 +41,7 @@ agent any
       }
       steps{
         sshPublisher(publishers: [sshPublisherDesc(configName: 'tomcat', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '''/opt/tomcat8/bin/shutdown.sh
-/opt/tomcat8/bin/startup.sh''', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/opt/tomcat8/webapps', remoteDirectorySDF: false, removePrefix: 'target', sourceFiles: 'target/mywebdev.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+/opt/tomcat8/bin/startup.sh''', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/opt/tomcat8/webapps', remoteDirectorySDF: false, removePrefix: 'target', sourceFiles: 'mywebdev.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
       }
     }
     
