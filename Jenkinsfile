@@ -20,7 +20,7 @@ agent any
         steps{
           script{
         def pom = readMavenPom file: 'pom.xml'
-        def repository= pom.repository
+        def repository= pom.version
         if (repository.endsWith("SNAPSHOT")) {
            repository = 'javahome-snapshot'
         }
