@@ -10,7 +10,7 @@ agent any
       stage("BuilD"){
         steps{
           sh 'mvn clean package'
-          sh 'mv target/myweb*.war target/multi.war
+          sh 'mv target/myweb*.war target/multi.war'
         }
       }
       stage("Nexus uplaod"){
