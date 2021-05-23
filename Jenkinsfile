@@ -18,6 +18,7 @@ agent any
       }
       stage("Nexus uplaod"){
         steps{
+          script{
         def pom = readMavenPom file: 'pom.xml'
         def repository= pom.repository
         if (repository.endsWith("SNAPSHOT")) {
@@ -33,9 +34,10 @@ agent any
             nexusUrl: '172.31.37.225:8081', 
             nexusVersion: 'nexus3',
             protocol: 'http', 
-            repository: 'javahome-release',
-            version: '0.0.1'
+            repository: repository,
+            version: pom.version
         }
+      }
       }
   }     
 }
