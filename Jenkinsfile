@@ -7,7 +7,7 @@ agent any
   stages{
     stage("SCM BUILD"){
       steps{
-        git branch: 'develop', url: 'https://github.com/gollaanilkumar/mutlibranch'
+        git branch: 'master', url: 'https://github.com/gollaanilkumar/mutlibranch'
       }
     }
       stage("BuilD"){
