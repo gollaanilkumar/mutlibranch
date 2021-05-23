@@ -19,7 +19,7 @@ agent any
       stage("Nexus uplaod"){
         def pom = readMavenPom file: 'pom.xml'
         def repository= pom.repository
-        if repository.endsWith1("SNAPSHOT") {
+        if repository.endsWith("SNAPSHOT") {
            repository = 'javahome-snapshot'
         }
         else {
