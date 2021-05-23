@@ -19,13 +19,11 @@ agent any
           credentialsId: 'nexus3',
            groupId: 'in.javahome', 
             nexusUrl: '172.31.37.225:8081', 
-            nexusVersion: 'nexus3',
+            nexusVersion: 'nexus3',00
             protocol: 'http', 
             repository: 'javahome-release',
             version: '0.0.1'
         }
       }
-      
+  }     
 }
-
-
