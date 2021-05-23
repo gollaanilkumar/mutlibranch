@@ -17,6 +17,16 @@ agent any
         }
       }
       stage("Nexus uplaod"){
+        def pom = readMavenPom file: 'pom.xml'
+        def repository= pom.repository
+        if repository.endsWith1("SNAPSHOT") {
+           repository = 'javahome-snapshot'
+        }
+        else {
+            repository = 'javahome-release'
+        }
+        
+        
         steps{
           nexusArtifactUploader artifacts: [[artifactId: 'myweb', classifier: '', file: 'target/multi.war', type: 'war']],
           credentialsId: 'nexus3',
