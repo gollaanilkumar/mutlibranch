@@ -27,7 +27,8 @@ agent any
         else {
             repository = 'javahome-release'
         }
-        
+            
+            try{
           nexusArtifactUploader artifacts: [[artifactId: 'myweb', classifier: '', file: 'target/multi.war', type: 'war']],
           credentialsId: 'nexus3',
            groupId: 'in.javahome', 
@@ -36,6 +37,13 @@ agent any
             protocol: 'http', 
             repository: repository,
             version: pom.version
+            }
+             catch (Exception e) {
+            echo 'Exception occurred: ' + e.toString()
+           sh 'Handle the exception!'
+             }
+               
+              
         }
       }
       }
