@@ -24,7 +24,6 @@ agent any
          withSonarQubeEnv('Sonar7') {
       sh 'mvn clean package  sonar:sonar'
     } // submitted SonarQube taskId is automatically attached to the pipeline context
-  }
       }
     }
       stage("Nexus uplaod"){
