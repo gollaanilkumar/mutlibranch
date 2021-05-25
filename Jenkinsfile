@@ -19,6 +19,11 @@ agent any
           sh 'mv target/myweb*.war target/multi.war'
         }
       }
+    stage("Sonar Aube Anlysis"){
+      steps{
+        sh 'mvn sonar:sonar'
+      }
+    }
       stage("Nexus uplaod"){
         when {
         branch "develop"
