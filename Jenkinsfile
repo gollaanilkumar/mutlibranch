@@ -19,6 +19,15 @@ agent any
           sh 'mv target/myweb*.war target/multi.war'
         }
       }
+        
+    stage('Maven check'){
+      steps{
+      
+    mavenSnapshotCheck check: 'true'
+      echo("mavenSnapshotCheck")
+      }
+    }
+    
     stage("Sonar Aube Anlysis"){
       steps{
          withSonarQubeEnv('Sonar7') {
@@ -40,14 +49,7 @@ agent any
           }
     }
       }
-    
-    stage('Maven check'){
-      steps{
-      
-    mavenSnapshotCheck check: 'true'
-      echo("mavenSnapshotCheck")
-      }
-    }
+
       stage("Nexus uplaod"){
         when {
         branch "develop"
