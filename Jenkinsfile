@@ -24,7 +24,7 @@ agent any
       steps{
       
     mavenSnapshotCheck check: 'true'
-      echo("mavenSnapshotCheck")
+      echo(mavenSnapshotCheck)
       }
     }
     
