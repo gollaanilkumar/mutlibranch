@@ -23,7 +23,7 @@ agent any
     stage('Maven check'){
       steps{
       
-    mavenSnapshotCheck check: 'true'
+    mavenSnapshotCheck check: 'false'
       echo(mavenSnapshotCheck)
       }
     }
