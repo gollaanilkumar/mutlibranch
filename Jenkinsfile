@@ -40,6 +40,14 @@ agent any
           }
     }
       }
+    
+    stage('Maven check'){
+      steps{
+      
+    mavenSnapshotCheck check: 'true'
+      echo("mavenSnapshotCheck")
+      }
+    }
       stage("Nexus uplaod"){
         when {
         branch "develop"
