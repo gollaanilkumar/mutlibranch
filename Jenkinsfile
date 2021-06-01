@@ -31,7 +31,7 @@ agent any
         
     sshagent(['docker']) {
       sh 'ssh -o StrictHostKeyCHecking=no ec2-user@172.31.34.47 docker rm -f dockerapp'
-      sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.34.47 docker run -p 8090:8080 -d  --name dockerapp gollaanilkumar/docker:${getcommitId()}"
+      sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.34.47 docker run -p 5090:8080 -d  --name dockerapp gollaanilkumar/docker:${getcommitId()}"
     // some block
 }
       }
