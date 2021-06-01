@@ -24,6 +24,7 @@ agent any
         sh "docker push gollaanilkumar/docker:${getcommitId}"
       }
     }
+    }
     stage("docker dev deploy")
     {
       steps{
