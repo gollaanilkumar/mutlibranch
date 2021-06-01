@@ -20,7 +20,7 @@ agent any
     stage("docker push"){
       steps{
         withCredentials([string(credentialsId: 'dockerpass', variable: ''), string(credentialsId: 'dockerpass', variable: 'docker-pwd')]) {
-        sh "docker login -u gollaanilkumar -p ${docker-pwd} "
+        sh "docker login -u gollaanilkumar -p ${docker-pwd}"
         sh "docker push gollaanilkumar/docker:${getcommitId()}"
       }
     }
