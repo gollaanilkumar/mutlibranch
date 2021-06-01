@@ -17,5 +17,11 @@ agent any
         sh 'docker build -t gollaanilkumar/docker:1 .'
       }
     }
+    stage("docker push"){
+      steps{
+        sh 'docker login -u gollaanilkumar -p 1993Modi'
+        sh 'docker push gollaanilkumar/docker:1'
+      }
+    }
   }     
 }
