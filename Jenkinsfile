@@ -40,7 +40,7 @@ agent any
 }
   
   def getcommitId(){
-   commitid = sh returnStdout: true, script: 'git rev-parse --short HEAD'
+   def commitid = sh returnStdout: true, script: 'git rev-parse --short HEAD'
    return commitid
   }
   
