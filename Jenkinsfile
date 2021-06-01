@@ -23,5 +23,15 @@ agent any
         sh 'docker push gollaanilkumar/docker:1'
       }
     }
+    stage("docker dev deploy")
+    {
+      steps{
+        
+    sshagent(['docker']) {
+      sh 'ssh -o StrictHostKeyChecking=no ec2-user@172.31.34.47 docker run -p 8090:8080 -d gollaanilkumar/docker:1'
+    // some block
+}
+      }
+    }
   }     
 }
