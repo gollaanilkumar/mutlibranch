@@ -5,47 +5,23 @@ pipeline{
   }
 agent any
   stages{
-    stage("SCM BUILD"){
-      steps{
-        git branch: 'master', url: 'https://github.com/gollaanilkumar/mutlibranch'
-      }
-    }
       stage("BuilD"){
         steps{
           sh 'mvn clean package'
           sh 'mv target/myweb*.war target/multi.war'
         }
       }
-      stage("Nexus uplaod"){
+      stage("docker build"){
         steps{
-          script{
-        def pom = readMavenPom file: 'pom.xml'
-        def repository= pom.version
-        if (repository.endsWith("SNAPSHOT")) {
-           repository = 'javahome-snapshot'
-        }
-        else {
-            repository = 'javahome-release'
-        }
-            
-            try{
-          nexusArtifactUploader artifacts: [[artifactId: 'myweb', classifier: '', file: 'target/multi.war', type: 'war']],
-          credentialsId: 'nexus3',
-           groupId: 'in.javahome', 
-            nexusUrl: '172.31.6.193:8081',
-            nexusVersion: 'nexus3',
-            protocol: 'http', 
-            repository: repository,
-            version: pom.version
-            }
-             catch (Exception e) {
-            echo 'Exception occurred: ' + e.toString()
-           sh 'Handle the exception!'
-             }
-               
-              
-        }
+        sh 'docker build -t 65.2.3.63:8083/mywebapp:23 .'
       }
       }
-  }     
+    stage("docker push"){
+      steps{
+        sh 'docker login -u admin -p 1993Modi 65.2.3.63:8083'
+        sh 'docker push 65.2.3.63:8083/mywebapp:23'
+      } 
+      
+}
+  }
 }
