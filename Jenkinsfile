@@ -28,7 +28,7 @@ agent any
         sshagent(['docker-nexus']) {
      sh 'ssh -o StrictHostKeyChecking=no ec2-user@172.31.47.141 sudo docker login -u admin -p 1993Modi 52.66.164.186:8083'
      sh 'ssh -o StrictHostKeyChecking=no ec2-user@172.31.47.141 sudo docker pull 52.66.164.186:8083/mywebapp:24'
-     sh 'ssh -o StrictHostKeyChecking=no ec2-user@172.31.47.141 sudo docker run -p 8080:8080 -d --name nexusapp 52.66.164.186:8083/mywebapp:24'
+     sh 'ssh -o StrictHostKeyChecking=no ec2-user@172.31.47.141 sudo docker run -p 8080:8080 -d --name nexusapp3 52.66.164.186:8083/mywebapp:24'
           
 }
   }
