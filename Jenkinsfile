@@ -26,8 +26,8 @@ agent any
     stage("docker deploy"){
       steps{
         sshagent(['docker-nexus']) {
-     sh 'ssh -o StrictHostKeyChecking=no ec2-user@172.31.47.141 docker login -u admin -p 1993Modi'
-     sh 'ssh -o StrictHostKeyChecking=no ec2-user@172.31.47.141 docker pull 52.66.164.186:8083/mywebapp:24'
+     sh 'ssh -o StrictHostKeyChecking=no ec2-user@172.31.47.141 sudo docker login -u admin -p 1993Modi'
+     sh 'ssh -o StrictHostKeyChecking=no ec2-user@172.31.47.141 sudo docker pull 52.66.164.186:8083/mywebapp:24'
 }
   }
 }
