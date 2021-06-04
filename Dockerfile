@@ -1,2 +1,2 @@
-FROM tomcat8
-Copy multi.war /usr/local/bin/tomcat/webapps
+FROM tomcat:8
+COPY target/*.war /usr/local/tomcat/webapps/myweb.war
