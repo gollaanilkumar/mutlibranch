@@ -40,7 +40,7 @@ agent any
         branch "uat"
       }
       steps{
-        echo "uat deploy poll scm"
+        echo "uat deploy poll scm testtss"
       }
     }
     
